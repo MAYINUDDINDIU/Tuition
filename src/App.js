@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import Home from './Home';
+import Requireauth from './PrivateRoute/Requireauth';
+import Slider from './Slider/Slider';
 
 function App() {
   return (
@@ -14,8 +16,9 @@ function App() {
 
     <Routes>
       <Route path='/' element={<Login />}>Login</Route>
-      <Route path='/dashboard' element={<Home />}>Home</Route>
       <Route path="/registration"  element={<Register />}>Register</Route>
+      <Route path='/dashboard'  element={<Requireauth><Home /></Requireauth>}>Home</Route>
+      <Route path="/slider"  element={<Slider />}>Slider</Route>
     </Routes>
  
   </div>

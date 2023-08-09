@@ -9,9 +9,19 @@ import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
    const[status,setStatus]=useState('');
    console.log(status);
+
+   localStorage.setItem("name", JSON.stringify(status));
+//    const saved = localStorage.getItem("name");
+//    const initialValue =saved;
+//    console.log(initialValue)
+
+   localStorage.setItem("user", JSON.stringify(status));
+
+
+
    const navigate = useNavigate();
    const location = useLocation();
-   const notify = () => toast("Login Successfully");
+
 
    const handleAdded = event => {
     event.preventDefault();
@@ -31,18 +41,20 @@ const Login = () => {
 
     })
         .then(Response => Response.json())
-            .then(data => setStatus(data.message));
+        .then(data => setStatus(data));
+    
+      
                
 }
 
 useEffect(() => {
-    if (status === 'login successfully') {
+    if (status?.message === 'login successfully') {
         <ToastContainer />
 
         navigate(`/dashboard`);
 
       
-    } else if(status === 'User not found') {
+    } else if(status?.message === 'User not found') {
         alert('Please type proper user id & pass');
         //  toast.error(`Opps!Please type proper emp code & password`);
     }
@@ -101,7 +113,7 @@ useEffect(() => {
               <p className="mt-1">If you are not registered? </p>
               <div className="flex justify-center mt-0 ">
                 <NavLink to={"/registration"}>
-                  <Button size="xs" onClick={notify} gradientDuoTone="greenToBlue" outline>
+                  <Button size="xs" gradientDuoTone="greenToBlue" outline>
                     Register now
                   </Button>
                 </NavLink>

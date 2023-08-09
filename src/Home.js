@@ -1,18 +1,21 @@
-import { Button } from 'flowbite-react';
+
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Slider from './Slider/Slider';
+
+import { Card } from 'flowbite-react';
+import Dashboar from './Dashboard/Dashboar';
+
+
 
 const Home = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userdetails=user.user;
+    console.log(userdetails?.id);
+
     return (
-        <div className='align-items-center flex mt-4'>
-        <Button  gradientDuoTone="greenToBlue">
-           Welcome to dashboard
-      </Button>
-      <NavLink to={"/"}>
-      <Button  className='ml-5' gradientDuoTone="greenToBlue" >
-          logout
-      </Button>
-      </NavLink>
+        <div className='p-2 lg:p-10'>
+          <Slider/>
+           <Dashboar/>
         </div>
     );
 };
