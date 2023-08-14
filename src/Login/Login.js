@@ -44,6 +44,7 @@ const Login = () => {
     })
         .then(Response => Response.json())
         .then(data => setStatus(data));
+        setSpinner(true);
               
 }
 
@@ -51,9 +52,11 @@ useEffect(() => {
     if (status?.message === 'login successfully') {
   
         navigate(`/dashboard`);
+        
     
     } else if(status?.message === 'User not found') {
         alert('Please type proper user id & pass');
+        setSpinner(false);
         //  toast.error(`Opps!Please type proper emp code & password`);
     }
 });
@@ -65,17 +68,9 @@ useEffect(() => {
             <div className="flex  items-center justify-center">
               <img className="" src={image} alt="" />
             </div>
-            <Circles
-        height="40"
-        width="40"
-        color="#4fa94d"
-        ariaLabel="circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
+    
   
-            <div className="max-h-96">
+            <div className="max-h-full">
               <div className="flex justify-center mt-0 h-0 lg:h-24 ">
                 <img
                   className="  p-2"
@@ -109,6 +104,18 @@ useEffect(() => {
                   <Checkbox id="remember" />
                   <Label htmlFor="remember">Remember me</Label>
                 </div>
+          
+            <div className="flex justify-center mb-2 ">
+            <Circles
+              height="40"
+              width="40"
+              color="#4fa94d"
+              ariaLabel="circles-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={spinner}
+            />
+              </div>
                 <Button
                   color="success"
                   gradientDuoTone="greenToBlue"
@@ -116,9 +123,10 @@ useEffect(() => {
                 >
                   LOGIN
                 </Button>
+
               </form>
               <p className="mt-1">If you are not registered? </p>
-              <div className="flex justify-center mt-0 ">
+              <div className="flex justify-center mt-0 mb-2">
                 <NavLink to={"/registration"}>
                   <Button size="xs" gradientDuoTone="greenToBlue" outline>
                     Register now
