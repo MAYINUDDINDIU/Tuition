@@ -8,6 +8,7 @@ import Register from './Register/Register';
 import Home from './Home';
 import Requireauth from './PrivateRoute/Requireauth';
 import Slider from './Slider/Slider';
+import Studentinfo from './Dashboard/Studentinfo';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/' element={<Login />}>Login</Route>
       <Route path="/registration"  element={<Register />}>Register</Route>
       <Route path='/dashboard'  element={<Requireauth><Home /></Requireauth>}>Home</Route>
+      <Route path='/studentinfo'  element={<Requireauth><Studentinfo /></Requireauth>}>Student Info</Route>
       <Route path="/slider"  element={<Slider />}>Slider</Route>
     </Routes>
  

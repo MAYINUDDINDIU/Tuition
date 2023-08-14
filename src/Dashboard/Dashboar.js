@@ -6,11 +6,13 @@ import payment from '../Assets/payment.png';
 import classschedule from '../Assets/class_schedule.png';
 import exam from '../Assets/result.png';
 import course from '../Assets/course_info.png';
+import { Link } from 'react-router-dom';
 const Dashboar = () => {
     return (
 
         <div class="grid gap-0   xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 lg:px-10  mt-3 lg:mt-5">
             <div className='p-2'>
+             <Link to={'/studentinfo'}>
             <Card
                 className="max-w-sm lg:max-w-lg  hover:none"
                 href="#">
@@ -30,6 +32,7 @@ const Dashboar = () => {
                 </h5>
             
             </Card>
+            </Link>
             </div>
 
             <div className='p-2'>

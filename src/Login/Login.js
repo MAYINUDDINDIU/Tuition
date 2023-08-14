@@ -6,11 +6,13 @@ import { NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import swal from "sweetalert";
 import { ToastContainer, toast } from 'react-toastify';
+import { Circles } from 'react-loader-spinner';
 const Login = () => {
    const[status,setStatus]=useState('');
    console.log(status);
+   const [spinner, setSpinner] = useState(false);    
 
-   localStorage.setItem("name", JSON.stringify(status));
+//    localStorage.setItem("name", JSON.stringify(status));
 //    const saved = localStorage.getItem("name");
 //    const initialValue =saved;
 //    console.log(initialValue)
@@ -28,7 +30,7 @@ const Login = () => {
     const std_no = event.target.userid.value;
     const password = event.target.password.value;
     const addItem = {std_no, password};
-        console.log(addItem);
+        // console.log(addItem);
 
     const url = 'https://api.ibrahimtuition.co.uk/api/login-web';
     fetch(url, {
@@ -42,18 +44,14 @@ const Login = () => {
     })
         .then(Response => Response.json())
         .then(data => setStatus(data));
-    
-      
-               
+              
 }
 
 useEffect(() => {
     if (status?.message === 'login successfully') {
-        <ToastContainer />
-
+  
         navigate(`/dashboard`);
-
-      
+    
     } else if(status?.message === 'User not found') {
         alert('Please type proper user id & pass');
         //  toast.error(`Opps!Please type proper emp code & password`);
@@ -67,6 +65,15 @@ useEffect(() => {
             <div className="flex  items-center justify-center">
               <img className="" src={image} alt="" />
             </div>
+            <Circles
+        height="40"
+        width="40"
+        color="#4fa94d"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
   
             <div className="max-h-96">
               <div className="flex justify-center mt-0 h-0 lg:h-24 ">
