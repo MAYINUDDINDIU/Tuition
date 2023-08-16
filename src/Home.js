@@ -6,8 +6,6 @@ import { Button, Card } from 'flowbite-react';
 import Dashboar from './Dashboard/Dashboar';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Home = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const userdetails=user.user;
@@ -19,7 +17,7 @@ const Home = () => {
     };
 
     return (
-        <div className='p-2 lg:pl-10 pr-10'>
+        <div className='p-2 lg:pl-10 lg:pr-10'>
               <div className="flex justify-center mb-2 ">
                   <Button   onClick={handleLogout} size="md" gradientDuoTone="greenToBlue" >
                     LOGOUT
