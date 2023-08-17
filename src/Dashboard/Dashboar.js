@@ -130,6 +130,7 @@ const Dashboar = () => {
             
             </Card></div>
             <div className='p-2'> 
+            <Link to={'/all_courses'}>
             <Card
                 className="max-w-sm lg:max-w-lg  hover:none"
                 href="#">
@@ -149,6 +150,7 @@ const Dashboar = () => {
                 </h6>
             
             </Card>
+            </Link>
             </div>
 
         </div>

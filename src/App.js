@@ -10,6 +10,7 @@ import Requireauth from './PrivateRoute/Requireauth';
 import Slider from './Slider/Slider';
 import Studentinfo from './Dashboard/Studentinfo';
 import ClassSchedule from './Dashboard/ClassSchedule';
+import Course from './Dashboard/Course';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/dashboard'  element={<Requireauth><Home /></Requireauth>}>Home</Route>
       <Route path='/studentinfo'  element={<Requireauth><Studentinfo /></Requireauth>}>Student Info</Route>
       <Route path='/class-schedule'  element={<Requireauth><ClassSchedule /></Requireauth>}>Class Schedule</Route>
+      <Route path='/all_courses'  element={<Requireauth><Course /></Requireauth>}>Class Schedule</Route>
       <Route path="/slider"  element={<Slider />}>Slider</Route>
     </Routes>
  
