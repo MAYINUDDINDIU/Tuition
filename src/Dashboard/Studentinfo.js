@@ -94,12 +94,26 @@ const Studentinfo = () => {
                 <h6 className="xs:text-xs lg:text-lg  tracking-tight text-dark dark:text-white">
                  Address: {info?.address}
                 </h6>
-            </div>
+                </div>
      
                   ))
              
                      
             }
+
+               <div className="grid gap-2  xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-2  max-w-sm lg:max-w-lg bg-success text-white lg:w-96 rounded mt-2 p-5"
+                href="#">   
+                <h6 className='text-white  w-50'> HOME WORK</h6>
+                <Button className='rounded-full btn btn-danger'  size="sm" >
+                (09-04-2023) DONE
+                </Button>
+                <h6 className='text-white  w-50'> HOME WORK</h6>
+                <Button className='rounded-full btn btn-danger'  size="sm" >
+                (09-04-2023) DONE
+                </Button>
+               </div>
+
+           
            
            
         
